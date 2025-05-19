@@ -1,0 +1,28 @@
+<div class="bg-[#e3f7f3] h-screen flex flex-col gap-8 py-2">
+  <div
+    class="bg-white p-4 gap-x-4 w-96 rounded-lg mx-auto flex items-center justify-center"
+  >
+    <app-button
+      title="Login"
+      [variant]="isPrimary ? 'primary' : 'secondary'"
+      class="flex-1"
+      (buttonClick)="onLogin()"
+    ></app-button>
+    <app-button
+      title="Sign Up"
+      [variant]="!isPrimary ? 'primary' : 'secondary'"
+      class="flex-1"
+      (buttonClick)="onSignUp()"
+    ></app-button>
+  </div>
+  <div class="bg-white p-4 w-[40rem] mx-auto flex-1 rounded-lg text-center">
+    <img src="/logo.svg" width="120" height="120" class="mx-auto" />
+    <h1 class="text-2xl font-medium text-gray-800">
+      Hello Everyone , We are chatly
+    </h1>
+    <h2 class="text-sm text-gray-500">
+      Wellcome to chatly please, login to your account.
+    </h2>
+    <ng-content></ng-content>
+  </div>
+</div>
