@@ -1,0 +1,13 @@
+<button
+  [type]="type"
+  (click)="onClick($event)"
+  [ngClass]="[
+    variant === 'primary' ? 'bg-[#01aa85] text-white' : '',
+    variant === 'secondary' ? 'bg-[#01aa8526] text-[#01aa85]' : '',
+    disabled ? 'opacity-60 !cursor-not-allowed' : ''
+  ]"
+  class="w-full py-3 px-4 rounded-xl cursor-pointer transition-colors duration-300"
+  [disabled]="disabled"
+>
+  <p class="capitalize font-medium text-sm">{{ title }}</p>
+</button>
