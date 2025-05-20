@@ -2,55 +2,67 @@
   <form
     [formGroup]="loginForm"
     (ngSubmit)="onSubmit()"
-    class="space-y-6 px-12 py-8"
+    class="space-y-3 px-12 py-8"
   >
     <div class="flex flex-col items-start gap-3">
       <label for="loginEmail" class="font-medium text-sm">Email Address</label>
-      <input
-        id="loginEmail"
-        formControlName="email"
-        type="email"
-        placeholder="Enter Your Email"
-        [ngClass]="{
-          'border-gray-300 focus:ring-[#bfeae0]':
-            !email.invalid || !email.touched,
-          'border-red-500 focus:ring-red-200': email.invalid && email.touched
+      <div class="w-full">
+        <input
+          id="loginEmail"
+          formControlName="email"
+          type="email"
+          placeholder="Enter Your Email"
+          [ngClass]="{
+            'border-gray-300 focus:ring-[var(--secLightPrimaryColor)]':
+              !email.invalid || !email.touched,
+            'border-red-500 focus:ring-red-200': email.invalid && email.touched
+          }"
+          class="w-full p-2 border rounded-sm outline-none focus:ring-4"
+        />
+        <p
+          [ngClass]="{
+          'invisible' :  !email.invalid || !email.touched,
         }"
-        class="w-full p-2 border rounded-sm outline-none focus:ring-4"
-      />
-      <p
-        [ngClass]="{
-      'hidden' :  !email.invalid || !email.touched,
-    }"
-        class="block"
-      >
-        Email is not valid please enter valid email
-      </p>
+          class="text-left block h-5 pt-1 text-xs font-medium text-red-700"
+        >
+          Email is not valid please enter valid email
+        </p>
+      </div>
     </div>
     <div class="flex flex-col items-start gap-3">
       <label for="loginPassword" class="font-medium text-sm">Password</label>
-      <input
-        id="loginPassword"
-        formControlName="password"
-        type="password"
-        placeholder="Enter Your Password"
-        [ngClass]="{
-          'border-gray-300 focus:ring-[#bfeae0]':
-            !password.invalid || !password.touched,
-          'border-red-500 focus:ring-red-200':
-            password.invalid && password.touched
-        }"
-        class="w-full p-2 border rounded-sm outline-none focus:ring-4"
-      />
+      <div class="w-full">
+        <input
+          id="loginPassword"
+          formControlName="password"
+          type="password"
+          placeholder="Enter Your Password"
+          [ngClass]="{
+            'border-gray-300 focus:ring-[var(--secLightPrimaryColor)]':
+              !password.invalid || !password.touched,
+            'border-red-500 focus:ring-red-200':
+              password.invalid && password.touched
+          }"
+          class="w-full p-2 border rounded-sm outline-none focus:ring-4"
+        />
+        <p
+          [ngClass]="{
+      'invisible' :  !password.invalid || !password.touched,
+    }"
+          class="text-left block h-5 pt-1 text-xs font-medium text-red-700"
+        >
+          Password is not valid please enter valid password format
+        </p>
+      </div>
     </div>
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between mt-2">
       <div class="flex items-center gap-1">
         <input
           type="checkbox"
           name=""
           id=""
           formControlName="rememberMe"
-          class="accent-[#5cb6a3]"
+          class="accent-[var(--primaryColor)]"
         />
         <p class="text-xs">Remember Me</p>
       </div>

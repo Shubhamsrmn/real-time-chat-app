@@ -1,1 +1,8 @@
 @import "tailwindcss";
+:root {
+  --background-color: #e3f7f3;
+  --primaryColor: #5cb6a3;
+  --lightPrimaryColor: #01aa8526;
+  --secLightPrimaryColor: #bfeae0;
+  --primaryNavColor: #01aa85;
+}

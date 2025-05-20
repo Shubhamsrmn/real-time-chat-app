@@ -2,8 +2,10 @@
   [type]="type"
   (click)="onClick($event)"
   [ngClass]="[
-    variant === 'primary' ? 'bg-[#01aa85] text-white' : '',
-    variant === 'secondary' ? 'bg-[#01aa8526] text-[#01aa85]' : '',
+    variant === 'primary' ? 'bg-[var(--primaryColor)] text-white' : '',
+    variant === 'secondary'
+      ? 'bg-[var(--lightPrimaryColor)] text-[var(--primaryColor)]'
+      : '',
     disabled ? 'opacity-60 !cursor-not-allowed' : ''
   ]"
   class="w-full py-3 px-4 rounded-xl cursor-pointer transition-colors duration-300"

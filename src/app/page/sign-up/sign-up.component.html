@@ -1,3 +1,94 @@
 <app-auth-layout>
-  <p>Sign Up</p>
+  <form
+    [formGroup]="signUpForm"
+    (ngSubmit)="onSubmit()"
+    class="space-y-3 px-12 py-4"
+  >
+    <div class="flex flex-col items-start gap-3">
+      <label for="signUpUserName" class="font-medium text-sm">User Name</label>
+      <div class="w-full">
+        <input
+          id="signUpUserName"
+          formControlName="userName"
+          type="text"
+          placeholder="Enter Your User Name"
+          [ngClass]="{
+            'border-gray-300 focus:ring-[var(--secLightPrimaryColor)]':
+              !userName.invalid || !userName.touched,
+            'border-red-500 focus:ring-red-200':
+              userName.invalid && userName.touched
+          }"
+          class="w-full p-2 border rounded-sm outline-none focus:ring-4"
+        />
+        <p
+          [ngClass]="{
+        'invisible' :  !userName.invalid || !userName.touched,
+      }"
+          class="text-left block h-5 pt-1 text-xs font-medium text-red-700"
+        >
+          User Name is not valid please enter valid username
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col items-start gap-3">
+      <label for="signUpEmail" class="font-medium text-sm">Email Address</label>
+      <div class="w-full">
+        <input
+          id="signUpEmail"
+          formControlName="email"
+          type="email"
+          placeholder="Enter Your Email"
+          [ngClass]="{
+            'border-gray-300 focus:ring-[var(--secLightPrimaryColor)]':
+              !email.invalid || !email.touched,
+            'border-red-500 focus:ring-red-200': email.invalid && email.touched
+          }"
+          class="w-full p-2 border rounded-sm outline-none focus:ring-4"
+        />
+        <p
+          [ngClass]="{
+        'invisible' :  !email.invalid || !email.touched,
+      }"
+          class="text-left block h-5 pt-1 text-xs font-medium text-red-700"
+        >
+          Email is not valid please enter valid email
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col items-start gap-3">
+      <label for="signUpPassword" class="font-medium text-sm">Password</label>
+      <div class="w-full">
+        <input
+          id="signUpPassword"
+          formControlName="password"
+          type="password"
+          placeholder="Enter Your Password"
+          [ngClass]="{
+            'border-gray-300 focus:ring-[var(--secLightPrimaryColor)]':
+              !password.invalid || !password.touched,
+            'border-red-500 focus:ring-red-200':
+              password.invalid && password.touched
+          }"
+          class="w-full p-2 border rounded-sm outline-none focus:ring-4"
+        />
+        <p
+          [ngClass]="{
+    'invisible' :  !password.invalid || !password.touched,
+  }"
+          class="text-left block h-5 pt-1 text-xs font-medium text-red-700"
+        >
+          Password is not valid please enter valid password format
+        </p>
+      </div>
+    </div>
+    <div class="w-60 mx-auto mt-4">
+      <app-button
+        title="Register"
+        variant="primary"
+        class="w-full"
+        type="submit"
+        [disabled]="signUpForm.invalid"
+      ></app-button>
+    </div>
+  </form>
 </app-auth-layout>
